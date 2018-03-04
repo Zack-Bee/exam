@@ -5,6 +5,7 @@ import { toogleTheme } from "../actions/toogleTheme"
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     toogleTheme() {
+        console.log(ownProps.store.getState())
         dispatch(toogleTheme)
     }
 })

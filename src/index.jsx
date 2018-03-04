@@ -1,14 +1,14 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import AppBar from "material-ui/AppBar"
-import "./css/index.css"
 import reducer from "./reducers/index"
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import ThemeProvider from "./containers/ThemeProvider.jsx"
-import ToogleThemeBtn from "./containers/ToogleThemeBtn.jsx"
-import FileList from "./components/FileList.jsx"
+import AppBar from "material-ui/AppBar"
 import Paper from "material-ui/Paper"
+import ToogleThemeBtn from "./containers/ToogleThemeBtn.jsx"
+import ThemeProvider from "./containers/ThemeProvider.jsx"
+import LocalFileList from "./containers/LocalFileList.jsx"
+import "./css/index.css"
 
 const store = createStore(reducer)
 
@@ -24,9 +24,9 @@ class App extends Component {
             <Provider store={store}>
                 <ThemeProvider>
                     <Paper zDepth={0}>
-                        <ToogleThemeBtn style={style} />
+                        <ToogleThemeBtn style={style} store={store}/>
                         <AppBar />
-                        <FileList />
+                        <LocalFileList />
                     </Paper>
                 </ThemeProvider>
             </Provider>

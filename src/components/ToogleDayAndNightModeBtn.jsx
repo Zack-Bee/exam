@@ -21,7 +21,7 @@ class ToogleDayAndNightModeBtn extends Component {
     }
 
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             mode: "light",
             backgroundColor: cyan500,

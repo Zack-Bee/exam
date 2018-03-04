@@ -30,7 +30,7 @@ class FileList extends Component {
                         <FileListItem fileInput={this.state.fileInputs[index]}
                             key={key}
                             itemId={key}
-                            deleteItem={this.deleteItem} />
+                            onIconButtonClick={this.deleteItem} />
                     ))
                 }
                 <div style={{ textAlign: "center", paddingTop: 10 }}>
