@@ -14,13 +14,11 @@ class LocalFileList extends Component {
             <React.Fragment>
                 <List>
                     {this.props.localFiles.map((fileInfo) => (
-                        <Paper key={fileInfo.itemId}>
                             <LocalFileItem fileName={fileInfo.fileName}
-                                itemId={fileInfo.itemId} delIcon={true} />
-                        </Paper>
+                                key={fileInfo.itemId} itemId={fileInfo.itemId} delIcon={true} />
                     ))}
                 </List>
-                <UploadBtn />
+                <Paper><UploadBtn /></Paper>
             </React.Fragment>
         )
     }
@@ -30,4 +28,4 @@ const mapStateToProps = (state) => ({
     localFiles: state.localFiles
 })
 
-export default connect(mapStateToProps)(LocalFileList)
+export default connect(mapStateToProps, null, null, {pure: false})(LocalFileList)

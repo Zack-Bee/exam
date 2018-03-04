@@ -12,24 +12,26 @@ class FileListItem extends Component {
     render() {
         console.log("render")
         return (
-            <ListItem
-                onClick={() => {
-                    if (this.props.onClick) {
-                        this.props.onClick()
-                    }
-                }}
-                style={{ textAlign: "center" }}
-                leftIcon={<FileIcon color={blue500} />}
-                primaryText={this.props.fileName}
-                rightIconButton={this.props.delIcon &&
-                    (<IconButton onClick={() => {
-                        if (this.props.onIconButtonClick) {
-                            this.props.onIconButtonClick()
+            <Paper>
+                <ListItem
+                    onClick={() => {
+                        if (this.props.onClick) {
+                            this.props.onClick()
                         }
-                    }}>
-                        <Delete color={red500} />
-                    </IconButton>)}>
-            </ListItem>
+                    }}
+                    style={{ textAlign: "center" }}
+                    leftIcon={<FileIcon color={blue500} />}
+                    primaryText={this.props.fileName}
+                    rightIconButton={this.props.delIcon &&
+                        (<IconButton onClick={() => {
+                            if (this.props.onIconButtonClick) {
+                                this.props.onIconButtonClick()
+                            }
+                        }}>
+                            <Delete color={red500} />
+                        </IconButton>)}>
+                </ListItem>
+            </Paper>
         )
     }
     shouldComponentUpdate() {

@@ -10,4 +10,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     }
 })
 
-export default connect(null, mapDispatchToProps)(ToogleDayAndNightModeBtn)
+export default connect(null, mapDispatchToProps, null, {pure: false})(ToogleDayAndNightModeBtn)
