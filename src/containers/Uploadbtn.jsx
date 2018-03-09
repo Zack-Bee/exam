@@ -4,6 +4,7 @@ import RaisedButton from "material-ui/RaisedButton"
 import FileUpload from "material-ui/svg-icons/file/file-upload"
 import { cyan500 } from "material-ui/styles/colors"
 import addLocalFile from "../actions/addLocalFile"
+import Paper from "material-ui/Paper"
 
 const acceptType = ".docx"
 let itemId = 0
@@ -11,6 +12,7 @@ const getItemId = () => (itemId++)
 
 class UploadBtn extends Component {
     render() {
+        console.log("render uploadBtn")
         return (
             <div style={{ textAlign: "center", paddingTop: 10 }}>
                 <RaisedButton label="选择本地文档"
@@ -37,4 +39,4 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
 
-export default connect(null, mapDispatchToProps)(UploadBtn)
+export default connect(null, mapDispatchToProps, null, {pure: false})(UploadBtn)

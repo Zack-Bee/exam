@@ -10,7 +10,7 @@ import { red500 } from "material-ui/styles/colors"
 
 class FileListItem extends Component {
     render() {
-        console.log("render")
+        console.log("render item")
         return (
             <Paper>
                 <ListItem
@@ -33,9 +33,6 @@ class FileListItem extends Component {
                 </ListItem>
             </Paper>
         )
-    }
-    shouldComponentUpdate() {
-        return true
     }
 }
 
