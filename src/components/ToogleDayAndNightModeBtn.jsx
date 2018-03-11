@@ -6,7 +6,6 @@ import { yellow500, cyan500, cyan700, blueGrey500 } from "material-ui/styles/col
 
 class ToogleDayAndNightModeBtn extends Component {
     render() {
-        console.log("render theme btn")
         return (
             <FloatingActionButton style={this.props.style}
                 iconStyle={{ fill: this.state.iconColor }}

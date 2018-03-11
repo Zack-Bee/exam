@@ -10,7 +10,6 @@ import { red500 } from "material-ui/styles/colors"
 
 class FileListItem extends Component {
     render() {
-        console.log("render item")
         return (
             <Paper>
                 <ListItem

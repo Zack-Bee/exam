@@ -3,14 +3,15 @@ import delLocalFile from "../actions/delLocalFile"
 import FileItem from "../components/FileItem.jsx"
 import JSZip from "jszip"
 import analysisData from "../actions/analysisData"
-import "../actions/loadQuestions"
+import loadQuestions from "../actions/loadQuestions"
+import setQuestions from "../actions/setQuestions"
 
 const removeSpace = (str) => (
     str.replace(/\s/g, "")
 )
 
 // 找出文档中有下划线的标志, 为填空题答案提供$$作为区分标志
-const addIdentifier = (xml) => {
+const addIdentifierForUnderline = (xml) => {
     let underlineTags = xml.getElementsByTagName("w:u")
     for (let i = 0, len = underlineTags.length; i < len; i++) {
         if (underlineTags[i].getAttribute("w:val") === "single") {
@@ -77,7 +78,7 @@ const getChoiceFromText = (text) => {
     choice = choice.filter((questionInfo) =>
         ((questionInfo.answer.length < 10) &&
             (questionInfo.choice.length < 15) &&
-            (questionInfo.description.length < 100))
+            (questionInfo.description.length < 80))
     )
     choice.forEach((questionInfo) => {
         if (questionInfo.answer.length === 1) {
@@ -144,7 +145,7 @@ let extractData = (file) => (
             doc.async("string").then((content) => {
                 let parser = new DOMParser()
                 let xml = parser.parseFromString(content, "application/xml")
-                addIdentifier(xml)
+                addIdentifierForUnderline(xml)
                 let text = getTextFromXML(xml)
                 let questions = getQuestionFromText(text)
                 resolve(questions)
@@ -155,10 +156,17 @@ let extractData = (file) => (
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onClick: () => {
+        console.log(ownProps)
         dispatch(analysisData(ownProps.itemId))
-        extractData(ownProps.file).then((questions) => {
-            console.log(questions)
-        })
+        if (ownProps.questions) {
+            dispatch(setQuestions(ownProps.questions))
+            dispatch(loadQuestions(ownProps.questions, ownProps.itemId))
+        } else {
+            extractData(ownProps.file).then((questions) => {
+                dispatch(setQuestions(questions))                
+                dispatch(loadQuestions(questions, ownProps.itemId))
+            })
+        }
     },
     onIconButtonClick: () => {
         dispatch(delLocalFile(ownProps.itemId))

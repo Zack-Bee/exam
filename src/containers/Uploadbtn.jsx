@@ -12,7 +12,6 @@ const getItemId = () => (itemId++)
 
 class UploadBtn extends Component {
     render() {
-        console.log("render uploadBtn")
         return (
             <div style={{ textAlign: "center", paddingTop: 10 }}>
                 <RaisedButton label="选择本地文档"

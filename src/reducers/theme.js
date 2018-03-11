@@ -19,6 +19,4 @@ const theme = (theme = lightTheme, action) => {
     }
 }
 
-console.log(lightTheme, darkTheme)
-
 export default theme

@@ -10,7 +10,6 @@ import UploadBtn from "./Uploadbtn.jsx"
 
 class LocalFileList extends Component {
     render() {
-        console.log("render list")
         return (
             <ListItem primaryText="本地文件"
                 initiallyOpen={true}
@@ -19,8 +18,8 @@ class LocalFileList extends Component {
                     ...this.props.localFiles.map((fileInfo) => (
                         <LocalFileItem fileName={fileInfo.fileName}
                             key={fileInfo.itemId} itemId={fileInfo.itemId}
-                            file={fileInfo.file}
-                            delIcon={true} />))
+                            file={fileInfo.file} delIcon={true}
+                            questions={fileInfo.questions} />))
                     , <UploadBtn key={-1} />
                 ]} />
         )
