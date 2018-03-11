@@ -40,4 +40,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null, null, {pure: false})(ProcessPage)
+export default connect(mapStateToProps)(ProcessPage)

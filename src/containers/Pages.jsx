@@ -60,4 +60,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null, null, { pure: false })(Pages)
+export default connect(mapStateToProps)(Pages)

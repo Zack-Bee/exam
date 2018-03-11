@@ -14,9 +14,9 @@ export default class extends Component {
         return (
             <div style={{margin: "10px 0"}}>
                 <Divider/>
-                <p>
+                <div>
                     {insertTextField(this.props.description.split("( )"))}
-                </p>
+                </div>
             </div>
         )
     }

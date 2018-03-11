@@ -32,4 +32,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null, null, { pure: false })(LocalFileList)
+export default connect(mapStateToProps)(LocalFileList)

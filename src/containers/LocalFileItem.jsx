@@ -173,5 +173,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     }
 })
 
-const LocalFileItem = connect(null, mapDispatchToProps, null, { pure: false })(FileItem)
+const LocalFileItem = connect(null, mapDispatchToProps)(FileItem)
 export default LocalFileItem

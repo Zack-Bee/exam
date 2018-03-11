@@ -1,4 +1,3 @@
-import theme from "./theme"
 import localFiles from "./localFiles"
 import questions from "./questions"
 import status from "./status"
@@ -6,7 +5,6 @@ import solvedQuestions from "./solvedQuestions"
 import currentQuestions from "./currentQuestions"
 
 export default (prevState = {}, action) => ({
-    theme: theme(prevState.theme, action),
     localFiles: localFiles(prevState.localFiles, action),
     questions: questions(prevState.questions, action),
     status: status(prevState.status, action),
