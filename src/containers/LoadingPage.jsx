@@ -13,12 +13,6 @@ const mapStateToProps = (state) => {
                 display: "block"
             }
         }
-        case LOAD_QUESTIONS: {
-            return {
-                text: "正在加载题目",
-                display: "block"
-            }
-        }
         case SHOW_MAIN_PAGE: {
             return {
                 text: "现在是在主页的状态, 讲道理你应该看不到我",

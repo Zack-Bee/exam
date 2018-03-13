@@ -24,7 +24,7 @@ const ProgressPage = ({ text, display = "none" }) => (
                 color: "rgba(255, 255, 255, 0.8)",
                 textAlign: "center"
             }}>{text}</p>
-            <LinearProgress />
+            <LinearProgress mode='indeterminate'	/>
         </div>
     </div>
 )

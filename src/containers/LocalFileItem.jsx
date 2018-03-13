@@ -155,7 +155,7 @@ let extractData = (file) => (
 )
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    onClick: () => {
+    onClick() {
         console.log(ownProps)
         dispatch(analysisData(ownProps.itemId))
         if (ownProps.questions) {
@@ -168,7 +168,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
             })
         }
     },
-    onIconButtonClick: () => {
+    onIconButtonClick() {
         dispatch(delLocalFile(ownProps.itemId))
     }
 })

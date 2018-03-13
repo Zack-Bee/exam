@@ -7,6 +7,8 @@ import { LOAD_QUESTIONS } from "../actions/loadQuestions"
 import { SHOW_MAIN_PAGE } from "../actions/showMainPage"
 import { ANALYSIS_DATA } from "../actions/analysisData"
 import { LOAD_QUESTIONS_END } from "../actions/loadQuestionsEnd"
+import { COMFIRM_ANSWER } from "../actions/comfirmAnswer"
+import { DO_IT_AGAIN } from "../actions/doItAgain"
 
 class Pages extends Component {
     render() {
@@ -36,6 +38,8 @@ const mapStateToProps = (state) => {
                 loadingPage: true
             }
         }
+        case COMFIRM_ANSWER: 
+        case DO_IT_AGAIN:
         case LOAD_QUESTIONS_END: {
             return {
                 filesPage: false,

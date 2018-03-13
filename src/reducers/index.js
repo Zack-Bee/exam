@@ -3,11 +3,17 @@ import questions from "./questions"
 import status from "./status"
 import solvedQuestions from "./solvedQuestions"
 import currentQuestions from "./currentQuestions"
+import singleChoiceAnswer from "./singleChoiceAnswer"
+import multipleChoiceAnswer from "./multipleChoiceAnswer"
+import gapFillingAnswer from "./gapFillingAnswer"
 
-export default (prevState = {}, action) => ({
-    localFiles: localFiles(prevState.localFiles, action),
-    questions: questions(prevState.questions, action),
-    status: status(prevState.status, action),
-    solvedQuestions: solvedQuestions(prevState.solvedQuestions, action),
-    currentQuestions: currentQuestions(prevState, action)
+export default (state = {}, action) => ({
+    localFiles: localFiles(state.localFiles, action),
+    questions: questions(state.questions, action),
+    status: status(state.status, action),
+    solvedQuestions: solvedQuestions(state.solvedQuestions, action),
+    currentQuestions: currentQuestions(state, action),
+    singleChoiceAnswer: singleChoiceAnswer(state.singleChoiceAnswer, action),
+    multipleChoiceAnswer: multipleChoiceAnswer(state.multipleChoiceAnswer, action),
+    gapFillingAnswer: gapFillingAnswer(state.gapFillingAnswer, action)
 })

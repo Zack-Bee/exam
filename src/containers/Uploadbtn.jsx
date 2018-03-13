@@ -23,7 +23,7 @@ class UploadBtn extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    onClick: () => {
+    onClick() {
         let fileInput = document.createElement("input")
         fileInput.type = "file"
         fileInput.accept = acceptType
