@@ -58,7 +58,7 @@ export default class QuestionsPage extends Component {
                     {this.props.currentQuestions.gapFilling.length > 0 &&
                         <h2>填空题</h2>
                     }
-                    {this.props.currentQuestions.gapFilling.map((questionInfo, 
+                    {this.props.currentQuestions.gapFilling.map((questionInfo,
                         index) => {
                         return (
                             <GapFillingItem key={index}
@@ -71,15 +71,9 @@ export default class QuestionsPage extends Component {
                 </div>
                 <div style={{ margin: "20px auto", textAlign: "center" }}>
                     {this.props.comfirmAnswer ?
-                        <React.Fragment>
-                            <RaisedButton primary={true}
-                                label="再做一次"
-                                labelPosition="before"
-                                onClick={this.props.doItAgain} />
-                            <RaisedButton secondary={true}
-                                labelPosition="before"
-                                label="下一波题" />
-                        </React.Fragment>
+                        <RaisedButton secondary={true}
+                            labelPosition="before"
+                            label="下一波题" />
                         : <RaisedButton
                             onClick={this.props.onComfirmAnswerBtnClick}
                             labelPosition="before"
