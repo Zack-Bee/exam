@@ -6,6 +6,9 @@ import comfirmAnswer from "../actions/comfirmAnswer"
 import { COMFIRM_ANSWER } from "../actions/comfirmAnswer"
 import loadQuestions from "../actions/loadQuestions"
 import resetAnser from "../actions/resetAnser"
+import addSolvedQuestions from "../actions/addSolvedQuestions"
+import showMainPage from "../actions/showMainPage"
+import resetSolvedQuestions from "../actions/resetSolvedQuestions"
 
 const mapStateToProps = (state) => {
     console.log(state)
@@ -21,6 +24,15 @@ const mapDispatchToProps = (dispatch) => ({
     },
     onComfirmAnswerBtnClick() {
         dispatch(comfirmAnswer())
+    },
+    onNextQuestionsBtnClick(currentQuestions) {
+        dispatch(addSolvedQuestions(currentQuestions))
+        dispatch(loadQuestions())
+        dispatch(loadQuestionsEnd())
+    },
+    onBackHomeBtnClick() {
+        dispatch(showMainPage())
+        dispatch(resetSolvedQuestions())
     }
 })
 

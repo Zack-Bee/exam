@@ -5,6 +5,7 @@ import JSZip from "jszip"
 import analysisData from "../actions/analysisData"
 import loadQuestions from "../actions/loadQuestions"
 import setQuestions from "../actions/setQuestions"
+import setFileName from "../actions/setFileName"
 
 const removeSpace = (str) => (
     str.replace(/\s/g, "")
@@ -42,13 +43,16 @@ const getTextFromXML = (xml) => {
 
 // 从文本中将选择题提取出来
 const getChoiceFromText = (text) => {
-    let choiceRegExp = /\d*、.*[\(（].+[\)）].+(?:[A-Z]、.+(?!\d+、))+/g
-    let choice = []
-    let choiceArray
-    let questions = {
-        singleChoice: [],
-        multipleChoice: []
-    }
+    let choiceRegExp = /\d*、.*[\(（].+[\)）].+(?:[A-Z]、.+(?!\d+、))+/g,
+        choice = [],
+        choiceArray,
+        questions = {
+            singleChoice: [],
+            multipleChoice: []
+        },
+        singleChoiceId = 0,
+        multipleChoiceId = 0
+
     while (choiceArray = choiceRegExp.exec(text)) {
         choice.push(choiceArray[0])
     }
@@ -82,8 +86,10 @@ const getChoiceFromText = (text) => {
     )
     choice.forEach((questionInfo) => {
         if (questionInfo.answer.length === 1) {
+            questionInfo.id = singleChoiceId++
             questions.singleChoice.push(questionInfo)
         } else {
+            questionInfo.id = multipleChoiceId++
             questions.multipleChoice.push(questionInfo)
         }
     })
@@ -92,10 +98,11 @@ const getChoiceFromText = (text) => {
 }
 
 const getGapFillingFromText = (text) => {
+    let gapFilling = [],
+        gapFillingArray,
+        gapFillingRegExp = /\d+、(?:.+\$.+\$.*)+/g,
+        gapFillingId = 0
 
-    let gapFilling = []
-    let gapFillingArray
-    let gapFillingRegExp = /\d+、(?:.+\$.+\$.*)+/g
     while (gapFillingArray = gapFillingRegExp.exec(text)) {
         gapFilling.push(gapFillingArray[0])
     }
@@ -111,6 +118,7 @@ const getGapFillingFromText = (text) => {
             return "( )"
         })
         questionInfo.description = str
+        questionInfo.id = gapFillingId++
         return questionInfo
     })
 
@@ -160,10 +168,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         dispatch(analysisData(ownProps.itemId))
         if (ownProps.questions) {
             dispatch(setQuestions(ownProps.questions))
+            dispatch(setFileName(ownProps.fileName))
             dispatch(loadQuestions(ownProps.questions, ownProps.itemId))
         } else {
             extractData(ownProps.file).then((questions) => {
-                dispatch(setQuestions(questions))                
+                dispatch(setQuestions(questions))
+                dispatch(setFileName(ownProps.fileName))
                 dispatch(loadQuestions(questions, ownProps.itemId))
             })
         }

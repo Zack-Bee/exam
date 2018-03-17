@@ -3,11 +3,11 @@ import ReactDOM from "react-dom"
 import reducer from "./reducers/index"
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import AppBar from "material-ui/AppBar"
 import Paper from "material-ui/Paper"
 import Pages from "./containers/Pages.jsx"
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 import "./css/index.css"
+import AppBar from "./containers/AppBar.jsx"
 
 const store = createStore(reducer)
 

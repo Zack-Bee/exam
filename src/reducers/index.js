@@ -6,6 +6,7 @@ import currentQuestions from "./currentQuestions"
 import singleChoiceAnswer from "./singleChoiceAnswer"
 import multipleChoiceAnswer from "./multipleChoiceAnswer"
 import gapFillingAnswer from "./gapFillingAnswer"
+import fileName from "./fileName"
 
 export default (state = {}, action) => ({
     localFiles: localFiles(state.localFiles, action),
@@ -15,5 +16,6 @@ export default (state = {}, action) => ({
     currentQuestions: currentQuestions(state, action),
     singleChoiceAnswer: singleChoiceAnswer(state.singleChoiceAnswer, action),
     multipleChoiceAnswer: multipleChoiceAnswer(state.multipleChoiceAnswer, action),
-    gapFillingAnswer: gapFillingAnswer(state.gapFillingAnswer, action)
+    gapFillingAnswer: gapFillingAnswer(state.gapFillingAnswer, action),
+    fileName: fileName(state.fileName, action)
 })
