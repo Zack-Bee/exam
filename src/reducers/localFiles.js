@@ -1,6 +1,8 @@
 import { ADD_LOCAL_FILE } from "../actions/addLocalFile"
 import { DEL_LOCAL_FILE } from "../actions/delLocalFile"
 import { LOAD_QUESTIONS } from "../actions/loadQuestions"
+import { SET_LOCAL_FILE_QUESTIONS } from "../actions/setLocalFileQuestions"
+
 const localFiles = (localFiles = [], action) => {
     switch (action.type) {
         case ADD_LOCAL_FILE: {
@@ -18,12 +20,13 @@ const localFiles = (localFiles = [], action) => {
                 action.itemId !== fileInfo.itemId
             ))
         }
-        case LOAD_QUESTIONS: {
+        case LOAD_QUESTIONS:
+        case SET_LOCAL_FILE_QUESTIONS: {
             return localFiles.map((fileInfo) => {
                 if (fileInfo.itemId === action.itemId) {
                     fileInfo.questions = action.questions
                 }
-                
+
                 return fileInfo
             })
         }

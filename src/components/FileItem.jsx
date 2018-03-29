@@ -8,7 +8,7 @@ import Divider from "material-ui/Divider"
 import Paper from "material-ui/Paper"
 import { red500 } from "material-ui/styles/colors"
 
-class FileListItem extends Component {
+class FileItem extends Component {
     render() {
         return (
             <Paper>
@@ -35,4 +35,4 @@ class FileListItem extends Component {
     }
 }
 
-export default FileListItem
+export default FileItem

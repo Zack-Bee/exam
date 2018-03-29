@@ -28,7 +28,7 @@ const mapStateToProps = (state) => {
         default: {
             return {
                 text: "似乎出了什么错误",
-                display: "block"
+                display: "none"
             }
         }
     }

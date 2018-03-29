@@ -10,6 +10,7 @@ import addSolvedQuestions from "../actions/addSolvedQuestions"
 import showMainPage from "../actions/showMainPage"
 import resetSolvedQuestions from "../actions/resetSolvedQuestions"
 
+
 const mapStateToProps = (state) => {
     console.log(state)
     return {

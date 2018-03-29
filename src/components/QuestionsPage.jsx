@@ -6,6 +6,7 @@ import MultipleChoiceItem from "../containers/MultipleChoiceItem.jsx"
 import GapFillingItem from "../containers/GapFillingItem.jsx"
 import ArrowBack from "material-ui/svg-icons/navigation/arrow-back"
 
+
 // 产生随机顺序的数组
 const shuffle = (arr) => {
     let newArr = arr.slice()

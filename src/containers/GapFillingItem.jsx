@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import GapFillingItem from "../components/GapFillingItem.jsx"
 import setGapFillingAnswer from "../actions/setGapFillingAnswer"
 import { COMFIRM_ANSWER } from "../actions/comfirmAnswer"
-import TextField from 'material-ui/TextField/TextField';
+import TextField from 'material-ui/TextField/TextField'
 
 
 const mapStateToProps = (state, ownProps) => {

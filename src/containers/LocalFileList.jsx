@@ -4,8 +4,6 @@ import ListItem from "material-ui/List/ListItem"
 import LocalFileItem from "./LocalFileItem.jsx"
 import Paper from "material-ui/Paper"
 import RaisedButton from "material-ui/RaisedButton"
-import FileUpload from "material-ui/svg-icons/file/file-upload"
-import { cyan500 } from "material-ui/styles/colors"
 import UploadBtn from "./Uploadbtn.jsx"
 
 class LocalFileList extends Component {
